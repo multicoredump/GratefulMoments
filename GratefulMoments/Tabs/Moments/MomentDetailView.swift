@@ -29,7 +29,7 @@ struct MomentDetailView: View {
                     Image(systemName: "trash")
                 }
                 .confirmationDialog("Delete Moment", isPresented: $showConfirmation) {
-                    Button("Delete Moment", role: .destructive) {
+                    Button("Delete Moment", role: .destructive) { // desstrutive -> red color 
                         dataContainer.context.delete(moment)
                         try? dataContainer.context.save()
                         dismiss()

@@ -26,6 +26,7 @@ struct MomentsView: View {
                 }
                 .overlay {
                     if moments.isEmpty {
+                        // Use a ContentUnavailableView in an overlay to provide guidance when the list is empty.
                         ContentUnavailableView {
                             Label("No moments yet!", systemImage: "exclamationmark.circle.fill")
                         } description: {

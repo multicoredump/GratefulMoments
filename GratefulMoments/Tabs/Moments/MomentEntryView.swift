@@ -29,6 +29,7 @@ struct MomentEntryView: View {
             .navigationTitle("Grateful For")
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
+                    // Add a cancel button so people can discard a new entry instead of saving
                     Button("Cancel", systemImage: "xmark") {
                         if title.isEmpty, note.isEmpty, imageData == nil {
                             dismiss()
@@ -37,6 +38,7 @@ struct MomentEntryView: View {
                         }
                     }
                     .confirmationDialog("Discard Moment", isPresented: $isShowingCancelConfirmation, actions: {
+                        // Assigning the .destructive role styles the button in red — a visual cue that the action is irreversible
                         Button("Discard Moment", role: .destructive) {
                             dismiss()
 
@@ -56,7 +58,7 @@ struct MomentEntryView: View {
                         }
                         
                     }
-                    .disabled(title.isEmpty)
+                    .disabled(title.isEmpty) // make the title mandatory
                 }
             }
         }
